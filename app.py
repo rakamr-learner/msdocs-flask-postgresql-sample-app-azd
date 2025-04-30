@@ -43,7 +43,7 @@ def index():
 @app.route('/<int:id>', methods=['GET'])
 def details(id):
     restaurant = Restaurant.query.where(Restaurant.id == id).first()
-    reviews = Review.query.where(Review.restaurant == id)
+    reviews = Review.query.where(Review.restaurant_id == id)
     return render_template('details.html', restaurant=restaurant, reviews=reviews)
 
 @app.route('/create', methods=['GET'])
@@ -87,7 +87,7 @@ def add_review(id):
         })
     else:
         review = Review()
-        review.restaurant = id
+        review.restaurant_id = id
         review.review_date = datetime.now()
         review.user_name = user_name
         review.rating = int(rating)
@@ -100,7 +100,7 @@ def add_review(id):
 @app.context_processor
 def utility_processor():
     def star_rating(id):
-        reviews = Review.query.where(Review.restaurant == id)
+        reviews = Review.query.where(Review.restaurant_id == id)
 
         ratings = []
         review_count = 0
