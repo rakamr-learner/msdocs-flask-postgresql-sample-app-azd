@@ -54,7 +54,7 @@ This project has a [dev container configuration](.devcontainer/), which makes it
     # Start the development server
     python3 -m flask run
     # in reviews at models.py and app.py restaurant is updated to restaurant_id when entering restaurant if error about "review" run at terminal
-    flask db migrate -m "add restaurant_id to review"w"
+    flask db migrate -m "add restaurant_id to review"
     flask db upgrade
     ```
 
