@@ -53,6 +53,9 @@ This project has a [dev container configuration](.devcontainer/), which makes it
     python3 -m flask db upgrade
     # Start the development server
     python3 -m flask run
+    # in reviews at models.py and app.py restaurant is updated to restaurant_id when entering restaurant if error about "review" run at terminal
+    flask db migrate -m "add restaurant_id to review"w"
+    flask db upgrade
     ```
 
 1. When you see the message `Your application running on port 8000 is available.`, click **Open in Browser**.
